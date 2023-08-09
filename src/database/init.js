@@ -1,5 +1,4 @@
 import postgresConnection from "./connection";
-import Message from "./model/Message";
 import User from "./model/User";
 
 const syncModels = async () => {
