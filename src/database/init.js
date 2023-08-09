@@ -1,9 +1,11 @@
 import postgresConnection from "./connection";
 import User from "./model/User";
+import File from "./model/File";
 
 const syncModels = async () => {
     await postgresConnection.authenticate();
     await User.sync({ alter: true });
+    await File.sync({ alter: true });
 };
 
 const dbInit = async () => {
