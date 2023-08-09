@@ -8,6 +8,9 @@ uploadRoute.post(
     "/profile-picture",
     uploadImage.single("profile-picture"),
     async function (req, res) {
+        if (req.uploadError) {
+            return res.status(403).json({ error: req.uploadError });
+        }
         try {
             await File.create({
                 ...req.file,
