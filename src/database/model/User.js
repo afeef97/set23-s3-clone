@@ -20,7 +20,7 @@ const User = postgresConnection.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        profilePictureUrl: {
+        profile_picture_url: {
             type: DataTypes.STRING,
             allowNull: true,
         },

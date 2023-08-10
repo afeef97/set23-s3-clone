@@ -1,6 +1,10 @@
 # build directory
 dist
 
+# Images
+*.jpg
+*.png
+
 # dotenv environment variable files
 .env
 .env.development
