@@ -48,4 +48,11 @@ const uploadImage = multer({
     },
 });
 
+export function uploadError(req, res, next) {
+    if (req.uploadError) {
+        return res.status(403).json({ error: req.uploadError });
+    }
+    next();
+}
+
 export default uploadImage;

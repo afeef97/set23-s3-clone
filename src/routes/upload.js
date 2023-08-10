@@ -1,5 +1,5 @@
 import { Router } from "express";
-import uploadImage from "../middleware/upload/image";
+import uploadImage, { uploadError } from "../middleware/upload/image";
 import File from "../database/model/File";
 
 const uploadRoute = Router();
@@ -7,10 +7,8 @@ const uploadRoute = Router();
 uploadRoute.post(
     "/profile-picture",
     uploadImage.single("profile-picture"),
+    uploadError,
     async function (req, res) {
-        if (req.uploadError) {
-            return res.status(403).json({ error: req.uploadError });
-        }
         try {
             await File.create({
                 ...req.file,
