@@ -9,6 +9,7 @@ import root from "./routes/root";
 import uploadRoute from "./routes/upload";
 import dbInit from "./database/init";
 import apiRoutes from "./routes/api";
+import session from "express-session";
 
 const app = express();
 
@@ -24,6 +25,17 @@ app.use(
 );
 app.use(helmet());
 app.use(morgan("tiny"));
+
+// Apply session
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(
+    session({
+        secret: config.sessionSecretToken,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { maxAge: oneDay },
+    })
+);
 
 // Apply routes before error handling
 app.use("/", root);
