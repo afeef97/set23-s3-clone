@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import postgresConnection from "../connection";
+import File from "./File";
 
 const User = postgresConnection.define(
     "User",
@@ -18,6 +19,10 @@ const User = postgresConnection.define(
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        profilePictureUrl: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
     },
     {

@@ -8,6 +8,7 @@ import fourOhFour from "./middleware/fourOhFour";
 import root from "./routes/root";
 import uploadRoute from "./routes/upload";
 import dbInit from "./database/init";
+import apiRoutes from "./routes/api";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(morgan("tiny"));
 // Apply routes before error handling
 app.use("/", root);
 app.use("/upload", uploadRoute);
+app.use("/api", apiRoutes);
 
 // Initialise DB
 dbInit();
