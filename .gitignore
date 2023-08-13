@@ -2,8 +2,7 @@
 dist
 
 # Images
-*.jpg
-*.png
+public/upload/images
 
 # dotenv environment variable files
 .env
